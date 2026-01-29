@@ -10,7 +10,7 @@ export default function Hero({ onShopClick, onStoryClick }: HeroProps) {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, rgba(36, 50, 71, 0.5) 0%, rgba(36, 50, 71, 0.3) 100%), url('https://images.pexels.com/photos/288621/pexels-photo-288621.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+            "linear-gradient(135deg, rgba(36, 50, 71, 0.5) 0%, rgba(36, 50, 71, 0.3) 100%), url('/header.jpg')",
           backgroundAttachment: 'fixed',
         }}
       />

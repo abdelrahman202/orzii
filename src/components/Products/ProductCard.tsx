@@ -43,16 +43,8 @@ export default function ProductCard({
             onClick={() => onQuickView?.(product.id)}
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 px-4 py-2 bg-[#243247] text-[#e7ddcc] font-semibold rounded-lg hover:bg-[#e7ddcc] hover:text-[#243247]"
           >
-            Quick View
+            Details
           </button>
-          {!isDisabled && (
-            <button
-              onClick={() => onAddToCart?.(product.id)}
-              className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 px-4 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#243247]"
-            >
-              Add to Cart
-            </button>
-          )}
         </div>
       </div>
 
@@ -68,10 +60,10 @@ export default function ProductCard({
           <span className="text-2xl font-bold text-[#243247]">${product.price}</span>
           {!isDisabled && (
             <button
-              onClick={() => onAddToCart?.(product.id)}
+              onClick={() => onQuickView?.(product.id)}
               className="px-4 py-2 bg-[#243247] text-[#e7ddcc] font-semibold rounded-lg hover:bg-[#e7ddcc] hover:text-[#243247] transition-all duration-300"
             >
-              Order
+              Details
             </button>
           )}
         </div>

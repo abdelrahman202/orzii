@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import CollectionGrid from './components/Collections/CollectionGrid';
 import ProductGrid from './components/Products/ProductGrid';
@@ -10,20 +9,19 @@ import Footer from './components/Footer/Footer';
 import SuccessModal from './components/SuccessModal';
 import { OrderFormData } from './types/form';
 import { products } from './data/products';
+import { X } from 'lucide-react';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
-  const [activeSection, setActiveSection] = useState<'home' | 'shop' | 'story' | 'contact'>('home');
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const [showOrderForm, setShowOrderForm] = useState(false);
 
   const shopRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
 
   const handleNavigate = (section: 'home' | 'shop' | 'story' | 'contact') => {
-    setActiveSection(section);
-
     if (section === 'shop' && shopRef.current) {
       shopRef.current.scrollIntoView({ behavior: 'smooth' });
     } else if (section === 'story' && storyRef.current) {
@@ -91,9 +89,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white" dir="rtl">
-      <Header activeSection={activeSection} onNavigate={handleNavigate} />
-
+    <div className="min-h-screen bg-white" dir="ltr">
       <main>
         <Hero onShopClick={handleHeroShop} onStoryClick={handleHeroStory} />
 
@@ -103,21 +99,13 @@ function App() {
           <ProductGrid
             onProductSelect={(productId) => setSelectedProduct(productId)}
             onAddToCart={(productId) => setSelectedProduct(productId)}
+            onOrderFormOpen={() => setShowOrderForm(true)}
           />
         </div>
 
         <div ref={storyRef}>
           <StorySection />
         </div>
-
-        <section className="py-16 md:py-24 bg-[#f7f2ea]">
-          <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#243247] mb-12 text-center">
-              اطلب الآن
-            </h2>
-            <OrderForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
-          </div>
-        </section>
       </main>
 
       <Footer />
@@ -131,6 +119,31 @@ function App() {
             setSelectedProduct(null);
           }}
         />
+      )}
+
+      {showOrderForm && (
+        <div
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowOrderForm(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative p-8" dir="rtl">
+              <button
+                onClick={() => setShowOrderForm(false)}
+                className="absolute top-4 right-4 z-10 bg-[#243247] text-white p-2 rounded-full hover:bg-[#e7ddcc] hover:text-[#243247] transition-all duration-300"
+              >
+                <X size={24} />
+              </button>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#243247] mb-12 text-center">
+                اطلب الآن
+              </h2>
+              <OrderForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+            </div>
+          </div>
+        </div>
       )}
 
       <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
