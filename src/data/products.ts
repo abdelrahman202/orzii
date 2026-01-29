@@ -9,7 +9,7 @@ export const products: Product[] = [
     price: 360,
     collection: 'bracelets',
     image: '/straight.jpg',
-    images: ['/straight.jpg', '/straight1.jpg', '/pack.heic'],
+    images: ['/straight.jpg', '/straight1.jpg', '/pack.jpg'],
     description: 'A timeless straight bracelet that embodies elegance and sophistication. Crafted with precision for those who appreciate understated luxury.',
     descriptionAr: 'إسورة مستقيمة خالدة تجسد الأناقة والرقي. مصنوعة بدقة لمن يقدرون الفخامة المتحفظة.',
     status: 'available',
