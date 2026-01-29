@@ -35,7 +35,7 @@ export const products: Product[] = [
     price: 360,
     collection: 'bracelets',
     image: '/curved.jpg',
-    images: ['/curved.jpg', '/curved1.jpg', '/pack.heic'],
+    images: ['/curved.jpg', '/curved1.jpg', '/pack.jpg'],
     description: 'The curved design flows with your natural movements, offering comfort and refined aesthetics. A statement piece for the discerning individual.',
     descriptionAr: 'ينسجم التصميم المنحني مع حركاتك الطبيعية، مما يوفر الراحة والجمال المتقن. قطعة مميزة لصاحب الذوق الرفيع.',
     status: 'available',
