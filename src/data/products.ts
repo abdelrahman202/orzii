@@ -61,7 +61,7 @@ export const products: Product[] = [
     price: 360,
     collection: 'bracelets',
     image: '/curvedgold.jpg',
-    images: ['/curvedgold.jpg', '/curvedgold1.jpg', '/pack.heic'],
+    images: ['/curvedgold.jpg', '/curvedgold1.jpg', '/pack.jpg'],
     description: 'Golden sophistication meets curved elegance. The Sophia bracelet captures warmth and heritage in every curve, a true heirloom piece.',
     descriptionAr: 'الرقي الذهبي يلتقي بالأناقة المنحنية. تجسد إسورة صوفيا الدفء والتراث في كل منحنى، وهي قطعة إرث حقيقية.',
     status: 'available',
