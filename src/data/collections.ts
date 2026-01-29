@@ -3,7 +3,7 @@ import { Collection } from '../types/product';
 export const collections: Collection[] = [
   {
     id: 'bracelets',
-    name: 'Bracelets',
+    name: 'ORZI - Heritage Bracelets',
     nameAr: 'الإسورات',
     slug: 'bracelets',
     description: 'Timeless signature bracelets that define your identity. Each piece is a testament to heritage and refined taste.',
